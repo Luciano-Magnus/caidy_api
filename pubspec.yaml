@@ -1,0 +1,20 @@
+name: caidy_api
+description: Api do aplicativo caidy para controle financeiro..
+version: 1.0.0
+# repository: https://github.com/my_org/my_repo
+
+environment:
+  sdk: ^3.7.0
+
+dependencies:
+  auto_mapper:
+    git:
+      url: git@github.com:Luciano-Magnus/auto_mapper.git
+      ref: main
+  vaden: ^0.0.9
+  vaden_security: ^0.0.1
+  postgres: ^3.5.5
+
+dev_dependencies:
+  build_runner: ^2.4.14
+  vaden_class_scanner: ^0.0.8
