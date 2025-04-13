@@ -1,7 +1,7 @@
 import 'package:auto_mapper/auto_mapper_annotation.dart';
 import 'package:caidy_api/src/modules/categoria/entities/categoria_entity.dart';
+import 'package:caidy_api/src/modules/despesas/enums/metodo_pagamento_enum.dart';
 import 'package:caidy_api/src/modules/receita/dto/receita_dto.dart';
-import 'package:caidy_api/src/modules/receita/enums/enum_metodo_pagamento.dart';
 import 'package:caidy_api/src/shared/entity/base_entity.dart';
 import 'package:caidy_api/src/shared/entity/i_base_entity.dart';
 
@@ -20,7 +20,7 @@ class ReceitaEntity implements IBaseEntity {
 
   DateTime dataPagamento;
 
-  EnumMetodoPagamento metodoPagamento;
+  MetodoPagamentoEnum metodoPagamento;
 
   ReceitaEntity({
     required this.base,

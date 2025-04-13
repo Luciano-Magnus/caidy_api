@@ -2,6 +2,7 @@ import 'package:auto_mapper/auto_mapper_annotation.dart';
 import 'package:caidy_api/src/modules/categoria/dto/categoria_dto.dart';
 import 'package:caidy_api/src/modules/categoria/entities/categoria_entity.dart';
 import 'package:caidy_api/src/modules/despesas/dto/despesa_dto.dart';
+import 'package:caidy_api/src/modules/despesas/enums/metodo_pagamento_enum.dart';
 import 'package:caidy_api/src/modules/despesas/submodules/despesa_recorrente/entities/despesa_recorrente_entity.dart';
 import 'package:caidy_api/src/modules/fator_conversao_banco/entities/fator_conversao_banco_entity.dart';
 import 'package:caidy_api/src/shared/entity/base_entity.dart';
@@ -25,7 +26,7 @@ class DespesaEntity implements IBaseEntity {
   @UseParse(DateTimeParse)
   final DateTime dataPagamento;
 
-  //final EnumMetodoPagamento metodoPagamento;
+  final MetodoPagamentoEnum metodoPagamento;
 
   final bool pagamentoRecorrente;
 
@@ -41,7 +42,7 @@ class DespesaEntity implements IBaseEntity {
     required this.categoria,
     required this.dataPagamento,
     required this.despesasRecorrentes,
-    //required this.metodoPagamento,
+    required this.metodoPagamento,
     required this.pagamentoRecorrente,
     required this.fatorConversaoBanco
   });

@@ -1,5 +1,5 @@
+import 'package:caidy_api/src/modules/despesas/enums/metodo_pagamento_enum.dart';
 import 'package:caidy_api/src/modules/fator_conversao_banco/enums/bank_enum.dart';
-import 'package:caidy_api/src/modules/receita/enums/enum_metodo_pagamento.dart';
 import 'package:vaden/vaden.dart';
 
 @Component()
@@ -17,16 +17,16 @@ class EnumBankParse extends ParamParse<BankEnum?, int> {
   }
 }
 
-class EnumMetodoPagamentoParse extends ParamParse<EnumMetodoPagamento?, int> {
+class EnumMetodoPagamentoParse extends ParamParse<MetodoPagamentoEnum?, int> {
   const EnumMetodoPagamentoParse();
 
   @override
-  int toJson(EnumMetodoPagamento? param) {
-    return param?.value ?? EnumMetodoPagamento.dinheiro.value;
+  int toJson(MetodoPagamentoEnum? param) {
+    return param?.value ?? MetodoPagamentoEnum.dinheiro.value;
   }
 
   @override
-  EnumMetodoPagamento? fromJson(int? json) {
-    return EnumMetodoPagamento.getByValue(json ?? EnumMetodoPagamento.dinheiro.value);
+  MetodoPagamentoEnum? fromJson(int? json) {
+    return MetodoPagamentoEnum.getByValue(json ?? MetodoPagamentoEnum.dinheiro.value);
   }
 }

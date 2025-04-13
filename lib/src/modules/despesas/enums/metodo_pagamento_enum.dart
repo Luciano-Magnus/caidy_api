@@ -1,30 +1,27 @@
-enum EnumMetodoPagamento {
+enum MetodoPagamentoEnum {
   dinheiro(descricao: 'Dinheiro', value: 0),
   cartao(descricao: 'Cartão', value: 1),
   pix(descricao: 'Pix', value: 2),
   cheque(descricao: 'Cheque', value: 3),
   online(descricao: 'Online', value: 4);
 
-   const EnumMetodoPagamento({
-    required this.descricao,
-    required this.value,
-  });
+  const MetodoPagamentoEnum({required this.descricao, required this.value});
 
   final String descricao;
   final int value;
 
- static EnumMetodoPagamento getByValue(int valor) {
+  static MetodoPagamentoEnum getByValue(int valor) {
     switch (valor) {
       case 0:
-        return EnumMetodoPagamento.dinheiro;
+        return MetodoPagamentoEnum.dinheiro;
       case 1:
-        return EnumMetodoPagamento.cartao;
+        return MetodoPagamentoEnum.cartao;
       case 2:
-        return EnumMetodoPagamento.pix;
+        return MetodoPagamentoEnum.pix;
       case 3:
-        return EnumMetodoPagamento.cheque;
+        return MetodoPagamentoEnum.cheque;
       case 4:
-        return EnumMetodoPagamento.online;
+        return MetodoPagamentoEnum.online;
       default:
         throw Exception('Método de pagamento não encontrado.');
     }

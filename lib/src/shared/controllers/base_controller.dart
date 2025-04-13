@@ -40,6 +40,7 @@ abstract class BaseController<D extends IBaseDto, E extends IBaseEntity, S exten
   @ApiResponse(403, description: 'Forbidden', content: ApiContent(type: 'application/json'))
   @ApiResponse(404, description: 'Not Found', content: ApiContent(type: 'application/json'))
   @ApiResponse(405, description: 'Method Not Allowed', content: ApiContent(type: 'application/json'))
+  @UseMiddleware([ApiKeyMiddleware])
   @Put('/')
   @override
   Future<D> update(@Body() D dto) async {
@@ -56,6 +57,7 @@ abstract class BaseController<D extends IBaseDto, E extends IBaseEntity, S exten
   @ApiResponse(403, description: 'Forbidden', content: ApiContent(type: 'application/json'))
   @ApiResponse(404, description: 'Not Found', content: ApiContent(type: 'application/json'))
   @ApiResponse(405, description: 'Method Not Allowed', content: ApiContent(type: 'application/json'))
+  @UseMiddleware([ApiKeyMiddleware])
   @Get('/')
   @override
   Future<List<D>> getAll(@Query() @ApiQuery(description: 'Filter by limit', required: false) int? limit, @Query() @ApiQuery(description: 'Filter by offset', required: false) int? offset) async {
@@ -72,6 +74,7 @@ abstract class BaseController<D extends IBaseDto, E extends IBaseEntity, S exten
   @ApiResponse(403, description: 'Forbidden', content: ApiContent(type: 'application/json'))
   @ApiResponse(404, description: 'Not Found', content: ApiContent(type: 'application/json'))
   @ApiResponse(405, description: 'Method Not Allowed', content: ApiContent(type: 'application/json'))
+  @UseMiddleware([ApiKeyMiddleware])
   @Get('/<id>')
   @override
   Future<D> getById(@Param() String id) async {
@@ -87,6 +90,7 @@ abstract class BaseController<D extends IBaseDto, E extends IBaseEntity, S exten
   @ApiResponse(403, description: 'Forbidden', content: ApiContent(type: 'application/json'))
   @ApiResponse(404, description: 'Not Found', content: ApiContent(type: 'application/json'))
   @ApiResponse(405, description: 'Method Not Allowed', content: ApiContent(type: 'application/json'))
+  @UseMiddleware([ApiKeyMiddleware])
   @Get('/first')
   @override
   Future<D> getFirst() {
@@ -102,11 +106,11 @@ abstract class BaseController<D extends IBaseDto, E extends IBaseEntity, S exten
   @ApiResponse(403, description: 'Forbidden', content: ApiContent(type: 'application/json'))
   @ApiResponse(404, description: 'Not Found', content: ApiContent(type: 'application/json'))
   @ApiResponse(405, description: 'Method Not Allowed', content: ApiContent(type: 'application/json'))
+  @UseMiddleware([ApiKeyMiddleware])
   @Delete('/')
   @override
-  Future<void> delete(@Body()D dto) {
-    // TODO: implement delete
-    throw UnimplementedError();
+  Future<void> delete(@Body()D dto) async {
+     await service.delete(entityFromDto(dto));
   }
 
 }

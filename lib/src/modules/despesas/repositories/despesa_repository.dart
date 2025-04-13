@@ -1,5 +1,6 @@
 import 'package:caidy_api/src/modules/categoria/entities/categoria_entity.dart';
 import 'package:caidy_api/src/modules/despesas/entities/despesa_entity.dart';
+import 'package:caidy_api/src/modules/despesas/enums/metodo_pagamento_enum.dart';
 import 'package:caidy_api/src/modules/despesas/repositories/i_despesa_repository.dart';
 import 'package:caidy_api/src/modules/fator_conversao_banco/entities/fator_conversao_banco_entity.dart';
 import 'package:caidy_api/src/modules/fator_conversao_banco/enums/bank_enum.dart';
@@ -60,6 +61,7 @@ class DespesaRepository extends SingleRepository<DespesaEntity> implements IDesp
       detalhes: map['detalhe'],
       dataPagamento: map['data_pagamento'],
       pagamentoRecorrente: map['pagamento_recorrente'],
+      metodoPagamento: MetodoPagamentoEnum.getByValue(map['metodo_pagamento']),
       categoria: CategoriaEntity(
           base: BaseEntity(
             id: map['categoria_id_categoria'],
@@ -100,7 +102,7 @@ class DespesaRepository extends SingleRepository<DespesaEntity> implements IDesp
       'valor': entity.valor,
       'detalhe': entity.detalhes,
       'data_pagamento': entity.dataPagamento,
-      //'metodo_pagamento': entity.metodoPagamento,
+      'metodo_pagamento': entity.metodoPagamento.value,
       'pagamento_recorrente': entity.pagamentoRecorrente,
       'id_categoria': entity.categoria.base.id,
     };

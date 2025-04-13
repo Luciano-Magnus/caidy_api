@@ -46,6 +46,7 @@ class GeneratedMappings {
           source.categoria,
         ),
         dataPagamento: source.dataPagamento,
+        metodoPagamento: source.metodoPagamento,
         pagamentoRecorrente: source.pagamentoRecorrente,
         despesasRecorrentes:
             source.despesasRecorrentes
@@ -73,6 +74,7 @@ class GeneratedMappings {
           source.categoria,
         ),
         dataPagamento: source.dataPagamento,
+        metodoPagamento: source.metodoPagamento,
         pagamentoRecorrente: source.pagamentoRecorrente,
         despesasRecorrentes:
             source.despesasRecorrentes
