@@ -26,9 +26,9 @@ abstract class BaseController<D extends IBaseDto, E extends IBaseEntity, S exten
   @Post('/')
   @override
   Future<D> save(@Body() D dto) async {
-    final response = await service.saveOrUpdate(_entityFromDto(dto));
+ //   final response = await service.saveOrUpdate(_entityFromDto(dto));
 
-    return _dtoFromEntity(response);
+    return dto;
   }
 
   @ApiOperation(summary: 'Atualiza o objeto no banco de dados', description: 'Atualiza o objeto no banco de dados')
@@ -42,9 +42,9 @@ abstract class BaseController<D extends IBaseDto, E extends IBaseEntity, S exten
   @Put('/')
   @override
   Future<D> update(@Body() D dto) async {
-    final response = await service.saveOrUpdate(_entityFromDto(dto));
+    //final response = await service.saveOrUpdate([]);
 
-    return _dtoFromEntity(response);
+    return dto;
   }
 
   @ApiOperation(summary: 'Busca todos os objetos no banco de dados', description: 'Busca todos os objetos no banco de dados')
@@ -108,20 +108,20 @@ abstract class BaseController<D extends IBaseDto, E extends IBaseEntity, S exten
     throw UnimplementedError();
   }
 
-  D _dtoFromEntity(E entity) {
-    return AutoMapper.convert(entity);
-  }
-
-  E _entityFromDto(D model) {
-    return AutoMapper.convert(model);
-  }
+  // D _dtoFromEntity(E entity) {
+  //   //return AutoMapper.convert(entity);
+  // }
+  //
+  // E _entityFromDto(D model) {
+  //   //return AutoMapper.convert(model);
+  // }
 
   List<D> _dtoListFromEntityList(List<E> entityList) {
-    return entityList.map((e) => _dtoFromEntity(e)).toList();
+    return [];
   }
 
   List<E> _entityListFromDtoList(List<D> modelList) {
-    return modelList.map((e) => _entityFromDto(e)).toList();
+    return [];
   }
 
 }

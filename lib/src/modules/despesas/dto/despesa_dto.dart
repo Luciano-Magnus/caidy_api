@@ -1,4 +1,4 @@
-import 'package:auto_mapper/auto_mapper.dart';
+import 'package:auto_mapper/auto_mapper_annotation.dart';
 import 'package:caidy_api/src/modules/categoria/dto/categoria_dto.dart';
 import 'package:caidy_api/src/modules/despesas/entities/despesa_entity.dart';
 import 'package:caidy_api/src/modules/despesas/submodules/despesa_recorrente/dto/despesa_recorrente_dto.dart';

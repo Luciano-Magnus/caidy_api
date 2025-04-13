@@ -1,4 +1,4 @@
-import 'package:auto_mapper/auto_mapper.dart';
+import 'package:auto_mapper/auto_mapper_annotation.dart';
 import 'package:caidy_api/src/modules/fator_conversao_banco/entities/fator_conversao_banco_entity.dart';
 import 'package:caidy_api/src/modules/fator_conversao_banco/enums/bank_enum.dart';
 import 'package:caidy_api/src/shared/dto/base_dto.dart';

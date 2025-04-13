@@ -1,4 +1,4 @@
-import 'package:auto_mapper/auto_mapper.dart';
+import 'package:auto_mapper/auto_mapper_annotation.dart';
 import 'package:caidy_api/src/shared/entity/base_entity.dart';
 import 'package:caidy_api/src/shared/parsers/date_time_parse.dart';
 import 'package:vaden/vaden.dart';

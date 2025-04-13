@@ -53,11 +53,11 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: main
-      resolved-ref: "28a4fb9c24257e4d41e8d74dc6f6fa5b5b726c6e"
+      ref: "1.0.1"
+      resolved-ref: c732d4bfe54dd82aa8b4c1f5d21934a89b9ba7a7
       url: "git@github.com:Luciano-Magnus/auto_mapper.git"
     source: git
-    version: "0.0.1"
+    version: "1.0.1"
   bcrypt:
     dependency: transitive
     description:

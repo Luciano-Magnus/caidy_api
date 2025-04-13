@@ -1,4 +1,4 @@
-import 'package:auto_mapper/auto_mapper.dart';
+import 'package:auto_mapper/auto_mapper_annotation.dart';
 import 'package:caidy_api/src/modules/categoria/entities/categoria_entity.dart';
 import 'package:caidy_api/src/modules/receita/dto/receita_dto.dart';
 import 'package:caidy_api/src/modules/receita/enums/enum_metodo_pagamento.dart';

@@ -1,4 +1,4 @@
-import 'package:auto_mapper/auto_mapper.dart';
+import 'package:auto_mapper/auto_mapper_annotation.dart';
 import 'package:caidy_api/src/modules/usuario/entities/usuario_entity.dart';
 import 'package:caidy_api/src/shared/dto/base_dto.dart';
 import 'package:caidy_api/src/shared/dto/i_base_dto.dart';
