@@ -7,7 +7,6 @@ class MainController<D extends IBaseDto, E extends IBaseEntity> {
     return AutoMapper.convert(entity);
   }
 
-
   E entityFromDto(D dto) {
     return AutoMapper.convert(dto);
   }
