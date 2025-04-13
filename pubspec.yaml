@@ -10,7 +10,7 @@ dependencies:
   auto_mapper:
     git:
       url: git@github.com:Luciano-Magnus/auto_mapper.git
-      ref: 1.0.1
+      ref: 1.0.2
   vaden: ^0.0.9
   vaden_security: ^0.0.1
   postgres: ^3.5.5

@@ -53,8 +53,8 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: "1.0.1"
-      resolved-ref: c732d4bfe54dd82aa8b4c1f5d21934a89b9ba7a7
+      ref: "1.0.2"
+      resolved-ref: bb14dd69d215d6bcb4c902c41c0513e78b7c97c4
       url: "git@github.com:Luciano-Magnus/auto_mapper.git"
     source: git
     version: "1.0.1"
@@ -782,4 +782,3 @@ packages:
     version: "3.1.3"
 sdks:
   dart: ">=3.7.0 <4.0.0"
-  flutter: ">=1.17.0"
