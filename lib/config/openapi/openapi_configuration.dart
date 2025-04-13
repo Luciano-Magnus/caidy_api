@@ -27,10 +27,10 @@ class OpenApiConfiguration {
             description: 'API key for accessing the API',
             location: ApiKeyLocation.header,
           ),
-          'idUsuario': SecurityScheme.apiKey(
-            name: 'idUsuario',
-            description: 'Id do usuário',
-            location: ApiKeyLocation.header,
+          'token': SecurityScheme.http(
+            scheme: HttpSecurityScheme.bearer,
+            description: 'Bearer token for authentication',
+            bearerFormat: 'JWT',
           ),
         },
       ),

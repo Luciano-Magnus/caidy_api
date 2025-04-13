@@ -1,5 +1,6 @@
 import 'package:auto_mapper/auto_mapper.dart';
 import 'package:caidy_api/src/shared/controllers/i_base_controller.dart';
+import 'package:caidy_api/src/shared/controllers/main_controller.dart';
 import 'package:caidy_api/src/shared/dto/i_base_dto.dart';
 import 'package:caidy_api/src/shared/entity/i_base_entity.dart';
 import 'package:caidy_api/src/shared/services/i_base_service.dart';
@@ -8,7 +9,7 @@ import 'package:vaden/vaden.dart';
 import '../middlewares/api_key_middleware.dart';
 
 
-abstract class BaseController<D extends IBaseDto, E extends IBaseEntity, S extends IBaseService<E>> implements IBaseController<D> {
+abstract class BaseController<D extends IBaseDto, E extends IBaseEntity, S extends IBaseService<E>> extends MainController<D, E> implements IBaseController<D> {
   final S service;
 
   BaseController(this.service);
@@ -26,9 +27,9 @@ abstract class BaseController<D extends IBaseDto, E extends IBaseEntity, S exten
   @Post('/')
   @override
   Future<D> save(@Body() D dto) async {
- //   final response = await service.saveOrUpdate(_entityFromDto(dto));
+    final response = await service.saveOrUpdate(entityFromDto(dto));
 
-    return dto;
+    return dtoFromEntity(response);
   }
 
   @ApiOperation(summary: 'Atualiza o objeto no banco de dados', description: 'Atualiza o objeto no banco de dados')
@@ -42,9 +43,9 @@ abstract class BaseController<D extends IBaseDto, E extends IBaseEntity, S exten
   @Put('/')
   @override
   Future<D> update(@Body() D dto) async {
-    //final response = await service.saveOrUpdate([]);
+    final response = await service.saveOrUpdate(entityFromDto(dto));
 
-    return dto;
+    return dtoFromEntity(response);
   }
 
   @ApiOperation(summary: 'Busca todos os objetos no banco de dados', description: 'Busca todos os objetos no banco de dados')
@@ -60,7 +61,7 @@ abstract class BaseController<D extends IBaseDto, E extends IBaseEntity, S exten
   Future<List<D>> getAll(@Query() @ApiQuery(description: 'Filter by limit', required: false) int? limit, @Query() @ApiQuery(description: 'Filter by offset', required: false) int? offset) async {
     final response = await service.getAll();
 
-    return _dtoListFromEntityList(response);
+    return dtoListFromEntityList(response);
   }
 
   @ApiOperation(summary: 'Busca um objeto no banco de dados pelo id', description: 'Busca um objeto no banco de dados pelo id')
@@ -106,22 +107,6 @@ abstract class BaseController<D extends IBaseDto, E extends IBaseEntity, S exten
   Future<void> delete(@Body()D dto) {
     // TODO: implement delete
     throw UnimplementedError();
-  }
-
-  // D _dtoFromEntity(E entity) {
-  //   //return AutoMapper.convert(entity);
-  // }
-  //
-  // E _entityFromDto(D model) {
-  //   //return AutoMapper.convert(model);
-  // }
-
-  List<D> _dtoListFromEntityList(List<E> entityList) {
-    return [];
-  }
-
-  List<E> _entityListFromDtoList(List<D> modelList) {
-    return [];
   }
 
 }
